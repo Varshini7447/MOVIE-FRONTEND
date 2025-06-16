@@ -79,24 +79,24 @@ onMounted(() => {
     </div>
   </div>
 </template>
-
 <script setup>
 import Header from '../components/Header.vue'
 import { ref, onMounted } from 'vue'
 import axios from 'axios'
-import { useRoute } from 'vue-router'
 
-const route = useRoute()
+// ✅ Get props instead
+const props = defineProps(['id'])
+
 const movie = ref(null)
 const comments = ref([])
 
 const fetchMovie = async () => {
-  const res = await axios.get(`http://localhost:5000/api/movies/${route.params.id}`)
+  const res = await axios.get(`http://localhost:5000/api/movies/${props.id}`)
   movie.value = res.data
 }
 
 const fetchComments = async () => {
-  const res = await axios.get(`http://localhost:5000/api/movies/${route.params.id}/comments`)
+  const res = await axios.get(`http://localhost:5000/api/movies/${props.id}/comments`)
   comments.value = res.data
 }
 
@@ -105,6 +105,7 @@ onMounted(() => {
   fetchComments()
 })
 </script>
+
 
 <style scoped>
 .container {
