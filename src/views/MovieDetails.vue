@@ -65,7 +65,7 @@ onMounted(() => {
       <div class="info">
         <p class="plot">{{ movie.fullplot }}</p>
         <p><strong>🎭 Cast:</strong> {{ movie.cast.join(', ') }}</p>
-        <p><strong>🎬 Directors:</strong> {{ movie.directors.join(', ') }}</p>
+        <p><strong> 📽️ Director:</strong> {{ movie.directors.join(', ') }}</p>
         <p><strong>⭐ IMDB Rating:</strong> {{ movie.imdb.rating }}</p>
       </div>
 
