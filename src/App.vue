@@ -1,16 +1,10 @@
-
 <template>
   <div id="app">
     <router-view />
   </div>
 </template>
-
-<script setup>
-// nothing needed here
-</script>
-
 <style>
-/* Basic global reset & nice font */
+
 body {
   /* margin: 0; */
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;

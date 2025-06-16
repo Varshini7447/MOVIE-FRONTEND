@@ -1,9 +1,3 @@
-
-
-
-
-
-
 <template>
   <div class="container">
     <Header />
@@ -19,7 +13,7 @@
     <div class="pagination">
       <button @click="prevPage" :disabled="page === 1">Previous</button>
       <span>Page {{ page }}</span>
-      <button @click="nextPage">Next</button>
+      <button @click="nextPage" :disabled="!hasMore">Next</button>
     </div>
   </div>
 </template>
@@ -31,15 +25,20 @@ import axios from 'axios'
 
 const actors = ref([])
 const page = ref(1)
+const hasMore = ref(true) 
 
 const fetchActors = async () => {
   const res = await axios.get(`http://localhost:5000/api/cast?page=${page.value}`)
   actors.value = res.data
+  hasMore.value = res.data.length === 12;
 }
 
 const nextPage = () => {
+  if(hasMore.value){
   page.value++
   fetchActors()
+  }
+
 }
 
 const prevPage = () => {
@@ -57,6 +56,7 @@ onMounted(fetchActors)
   max-width: 600px;
   margin: 20px auto;
   padding: 0 20px;
+  text-align: center;
 }
 
 h2 {

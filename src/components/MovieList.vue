@@ -1,32 +1,3 @@
-<!-- <template>
-  <div class="movie-list">
-    <MovieCard v-for="movie in movies" :key="movie._id" :movie="movie" />
-  </div>
-</template>
-
-<script setup>
-import MovieCard from './MovieCard.vue'
-const props = defineProps(['movies'])
-</script>
-
-<style scoped>
-.movie-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-}
-</style> -->
-
-
-
-
-
-
-
-
-
-
-
 <template>
   <div class="movie-list">
     <MovieCard v-for="movie in movies" :key="movie._id" :movie="movie" />

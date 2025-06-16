@@ -1,59 +1,3 @@
-
-<!-- 
-
-
-<template>
-  <div>
-    <Header />
-    <div v-if="movie">
-      <h2>{{ movie.title }}</h2>
-      <img :src="movie.poster" alt="Poster" />
-      <p>{{ movie.fullplot }}</p>
-      <p><strong>Cast:</strong> {{ movie.cast.join(', ') }}</p>
-      <p><strong>Directors:</strong> {{ movie.directors.join(', ') }}</p>
-      <p><strong>IMDB Rating:</strong> {{ movie.imdb.rating }}</p>
-      <h3>Comments:</h3>
-      <ul>
-        <li v-for="comment in comments" :key="comment._id">
-          <p>{{ comment.text }}</p>
-          <small>By {{ comment.name }}</small>
-        </li>
-      </ul>
-    </div>
-  </div>
-</template>
-
-<script setup>
-import Header from '../components/Header.vue'
-import { ref, onMounted } from 'vue'
-import axios from 'axios'
-import { useRoute } from 'vue-router'
-
-const route = useRoute()
-const movie = ref(null)
-const comments = ref([])
-
-const fetchMovie = async () => {
-  const res = await axios.get(`http://localhost:5000/api/movies/${route.params.id}`)
-  movie.value = res.data
-}
-
-const fetchComments = async () => {
-  const res = await axios.get(`http://localhost:5000/api/movies/${route.params.id}/comments`)
-  comments.value = res.data
-}
-
-onMounted(() => {
-  fetchMovie()
-  fetchComments()
-})
-</script> -->
-
-
-
-
-
-
 <template>
   <div class="container">
     <Header />
@@ -107,7 +51,7 @@ onMounted(() => {
 </script>
 
 
-<style scoped>
+<style >
 .container {
   max-width: 800px;
   margin: 30px auto;
@@ -127,14 +71,20 @@ onMounted(() => {
   margin-bottom: 20px;
   color: #333;
 }
-
-.poster {
-  display: block;
-  max-width: 100%;
+/* .poster {
+  width: 100%;
   height: auto;
-  margin: 0 auto 20px;
   border-radius: 8px;
+  margin-bottom: 20px;
+} */
+
+.movie-details .poster{
+  height: 100px;
+  background: 2px solid rgb(217, 79, 79);
+ 
+
 }
+
 
 .info {
   margin-bottom: 30px;

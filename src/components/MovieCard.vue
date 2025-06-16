@@ -1,46 +1,6 @@
-<!-- 
-
-
 <template>
   <div class="movie-card" @click="goToDetails">
-    <img :src="movie.poster" alt="Poster" />
-    <h3>{{ movie.title }}</h3>
-  </div>
-</template>
-
-<script setup>
-import { useRouter } from 'vue-router'
-
-const props = defineProps(['movie'])
-const router = useRouter()
-
-const goToDetails = () => {
-  router.push(`/movie/${props.movie._id}`)
-}
-</script>
-
-<style scoped>
-.movie-card {
-  width: 200px;
-  cursor: pointer;
-  text-align: center;
-}
-
-.movie-card img {
-  width: 100%;
-  height: auto;
-}
-</style> -->
-
-
-
-
-
-
-
-<template>
-  <div class="movie-card" @click="goToDetails">
-    <img :src="movie.poster" alt="Poster" />
+    <img :src="movie.poster" alt="Poster" class="poster" />
     <h3>{{ movie.title }}</h3>
   </div>
 </template>
@@ -73,10 +33,10 @@ const goToDetails = () => {
 }
 
 .movie-card img {
-  display: block;
-  width: 100%;
-  height: 200px;
-  /* object-fit: cover; */
+  
+  width: 50%;
+  height: 100px;
+  
 }
 
 .movie-card h3 {
@@ -84,5 +44,8 @@ const goToDetails = () => {
   padding: 0 10px;
   font-size: 1rem;
   color: #333;
+  
 }
+
+
 </style>
