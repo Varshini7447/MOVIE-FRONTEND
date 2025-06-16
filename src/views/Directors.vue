@@ -11,7 +11,7 @@
 
     <ul class="list">
       <li v-for="director in directors" :key="director">
-        🎬 {{ director }}
+        📽️ {{ director }}
       </li>
     </ul>
 
