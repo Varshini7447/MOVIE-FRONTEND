@@ -28,7 +28,7 @@ import Header from '../components/Header.vue'
 import { ref, onMounted } from 'vue'
 import axios from 'axios'
 
-// ✅ Get props instead
+
 const props = defineProps(['id'])
 
 const movie = ref(null)
@@ -56,6 +56,7 @@ onMounted(() => {
   max-width: 800px;
   margin: 30px auto;
   padding: 0 20px;
+  margin-top: 8%;
 }
 
 .movie-details {
@@ -69,14 +70,8 @@ onMounted(() => {
 .title {
   text-align: center;
   margin-bottom: 20px;
-  color: #333;
+  color: rgb(146, 91, 40);
 }
-/* .poster {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-  margin-bottom: 20px;
-} */
 
 .movie-details .poster{
   height: 100px;

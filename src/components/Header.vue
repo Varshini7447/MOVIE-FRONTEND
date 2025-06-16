@@ -51,16 +51,16 @@ const goToMovie = (movie) => {
 
 <style scoped>
 .header {
-  position: fixed;   /* ✅ fix the header at the top */
+  position: fixed;  
   top: 0;
   left: 0;
-  width: 100%;       /* ✅ full width */
-  z-index: 1000;     /* ✅ stays on top of other content */
+  width: 100%;       
+  z-index: 1000;   
   display: flex;
   align-items: center;
   justify-content: space-between;
   background: #121212;
-  color: #2fff;
+  color: #1db954;
   padding: 1rem 2rem;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
 }

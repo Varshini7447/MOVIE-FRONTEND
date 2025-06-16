@@ -63,7 +63,6 @@ h2 {
   margin-top: 80px;
   text-align: center;
   color: #333;
-  /* margin-bottom: 20px; */
 }
 
 .list {

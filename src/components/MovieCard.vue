@@ -1,23 +1,17 @@
 <template>
-  <div class="movie-card" @click="goToDetails">
+  <router-link :to="`/movie/${movie._id}`" class="movie-card">
     <img :src="movie.poster" alt="Poster" class="poster" />
     <h3>{{ movie.title }}</h3>
-  </div>
+  </router-link>
 </template>
 
 <script setup>
-import { useRouter } from 'vue-router'
-
 const props = defineProps(['movie'])
-const router = useRouter()
-
-const goToDetails = () => {
-  router.push(`/movie/${props.movie._id}`)
-}
 </script>
 
 <style scoped>
 .movie-card {
+  display: block;                
   cursor: pointer;
   text-align: center;
   border-radius: 8px;
@@ -25,6 +19,7 @@ const goToDetails = () => {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   background: #fff;
   transition: transform 0.2s, box-shadow 0.2s;
+  text-decoration: none;        
 }
 
 .movie-card:hover {
@@ -33,19 +28,14 @@ const goToDetails = () => {
 }
 
 .movie-card img {
-  
-  width: 50%;
-  height: 100px;
-  
+  height: 100px;                 
+  object-fit: cover;            
 }
 
 .movie-card h3 {
   margin: 10px 0;
   padding: 0 10px;
   font-size: 1rem;
-  color: #333;
-  
+  color: rgb(146, 91, 40);
 }
-
-
 </style>
