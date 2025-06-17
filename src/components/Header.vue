@@ -6,7 +6,7 @@
         type="text" 
         v-model="searchQuery" 
         placeholder="Search movies..." 
-        @input="handleSearch"
+        @input="debouncedSearch"
       />
       <SearchSuggestions 
         v-if="suggestions.length" 
@@ -26,6 +26,8 @@ import { ref } from 'vue'
 import axios from 'axios'
 import { useRouter } from 'vue-router'
 import SearchSuggestions from './SearchSuggestions.vue'
+import debounce from 'lodash.debounce';
+
 
 const searchQuery = ref('')
 const suggestions = ref([])
@@ -41,6 +43,7 @@ const handleSearch = async () => {
   })
   suggestions.value = res.data
 }
+const debouncedSearch=debounce(handleSearch,500)
 
 const goToMovie = (movie) => {
   router.push(`/movie/${movie._id}`)
