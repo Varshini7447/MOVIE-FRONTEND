@@ -26,8 +26,10 @@ const hasMore = ref(true)
 
 const fetchMovies = async () => {
   const res = await axios.get(`http://localhost:5000/api/movies?page=${page.value}`)
-  movies.value = res.data
-  hasMore.value = res.data.length === 12;
+  // movies.value = res.data
+  // hasMore.value = res.data.length === 12;
+  movies.value = res.data.movies;  
+  hasMore.value = res.data.hasMore;
 }
 
 const nextPage = () => {
